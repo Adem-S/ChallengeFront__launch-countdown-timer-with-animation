@@ -1,0 +1,288 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap");
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Red Hat Text", sans-serif;
+  font-weight: 700;
+}
+
+body {
+  padding: 8em 0 3em;
+  height: 100vh;
+  font-size: 14px;
+  width: 100%;
+  background-image: url("images/bg-stars.svg"),
+    linear-gradient(hsl(234, 17%, 12%), hsl(271, 23%, 18%));
+  overflow: hidden;
+}
+
+header {
+  padding: 0 2em;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  font-size: 1.5em;
+  letter-spacing: 0.3em;
+  margin-bottom: calc(8em / 1.5);
+}
+
+main {
+  padding: 0 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1em;
+  perspective: 35em;
+  transform: rotateX(10deg);
+}
+
+.card__anime {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  background: hsl(236, 21%, 22%);
+  height: 5em;
+  width: 10em;
+  border-radius: 0.6em 0.6em 0 0;
+  transform-origin: bottom;
+  overflow: hidden;
+}
+
+.card__block {
+  position: relative;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10em;
+  width: 10em;
+  border-radius: 0.6em;
+  box-shadow: 0px 0.7em 1px 0px hsl(234, 17%, 12%);
+  background: linear-gradient(
+    hsl(236, 21%, 22%) 49%,
+    hsl(236, 21%, 20%) 50%,
+    hsl(236, 21%, 26%) 51%
+  );
+}
+
+.card__anime::before,
+.card__anime::after {
+  content: "";
+  width: 0.4em;
+  height: 0.4em;
+  background: hsl(234, 17%, 12%);
+  border-radius: 0.4em 0 0 0;
+  position: absolute;
+}
+.card__anime::before {
+  transform: rotate(90deg);
+  left: 0;
+  bottom: 0;
+}
+
+.card__anime::after {
+  right: 0;
+  bottom: 0;
+}
+
+.card__block::before,
+.card__block::after {
+  content: "";
+  width: 0.8em;
+  height: 0.4em;
+  background: hsl(234, 17%, 12%);
+  border-radius: 0.4em 0.4em 0 0;
+  position: absolute;
+}
+
+.card__block::before {
+  transform: rotate(90deg) translateY(50%);
+  left: 0;
+}
+
+.card__block::after {
+  transform: rotate(-90deg) translateY(50%);
+  right: 0;
+}
+
+.card__anime h2 {
+  z-index: 1;
+  font-size: 5.5em;
+  position: absolute;
+  top: 0.25em;
+  color: hsl(345, 90%, 60%);
+}
+
+.card__block h2 {
+  z-index: 1;
+  font-size: 5.5em;
+  position: absolute;
+  top: 0.25em;
+  background: -webkit-linear-gradient(
+    hsl(345, 90%, 60%) 49%,
+    hsl(345, 95%, 50%) 50%,
+    hsl(345, 95%, 68%) 51%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card p {
+  color: hsl(237, 18%, 59%);
+  align-items: center;
+  font-size: 0.9em;
+  letter-spacing: 0.4em;
+  margin-top: 2em;
+}
+
+/* ANIME */
+
+.flip {
+  animation-duration: 1s;
+  animation-name: flip;
+  animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+
+.flip-delay {
+  animation-duration: 1s;
+  animation-name: flip;
+  animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  animation-iteration-count: infinite;
+  animation-delay: 0.4s;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0deg);
+    z-index: 2;
+  }
+  100% {
+    transform: rotateX(-180deg);
+    z-index: -1;
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: url("images/pattern-hills.svg") right;
+  min-height: 197px;
+}
+
+.contact {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.contact img {
+  margin: 0 20px;
+}
+
+.contact img:hover {
+  cursor: pointer;
+  filter: invert(49%) sepia(64%) saturate(1914%) hue-rotate(313deg)
+    brightness(105%) contrast(97%);
+}
+
+.attribution {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 8px;
+  text-align: center;
+  font-size: 0.6em;
+  padding: 1em;
+}
+.attribution a {
+  font-size: inherit;
+  color: hsl(228, 45%, 44%);
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 1600px) {
+  * {
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 2000px) {
+  * {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  * {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 2em;
+    margin: 3em 0;
+  }
+
+  .card p {
+    font-size: 0.7em;
+  }
+
+  .card h2 {
+    font-size: 3.5em;
+  }
+
+  .card__anime h2 {
+    top: 0.3em;
+  }
+  .card__block h2 {
+    top: 0.3em;
+  }
+  .card__block {
+    width: 7em;
+    height: 7em;
+  }
+  .card__anime {
+    width: 7em;
+    height: 3.5em;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .card h2 {
+    font-size: 3em;
+  }
+
+  .card__anime h2 {
+    top: 0.3em;
+  }
+  .card__block h2 {
+    top: 0.3em;
+  }
+  .card__block {
+    width: 6em;
+    height: 6em;
+  }
+  .card__anime {
+    width: 6em;
+    height: 3em;
+  }
+}
